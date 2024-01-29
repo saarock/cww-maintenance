@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background-color: pink;
+    padding: 1rem;
+    top: 2rem;
+}
+
+.all_services_top {
+    display: flex;
+
+
+
+
+}
+
+.all_services_top div {
+    margin: 0.4rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    background-color: gainsboro;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+}
+
+.all_services_top div:hover {
+    background-color: gray;
+    color: white;
+
+}
+
+.services {
+    display: none;
+}
+
+.image_div {
+    height: 3rem;
+    background-color: gray;
+    width: 4rem;
+    margin: 1rem;
+
+}
+
+.settings_div {
+    border: 2px solid rgba(128, 128, 128, 0.331);
+    padding: 1rem;
+    width: 60%;
+}
+
+.setting_top {
+
+    border: 2px solid rgba(128, 128, 128, 0.331);
+    padding: 1rem;
+}
+
+.setting_middle {
+    border: 2px solid rgba(128, 128, 128, 0.331);
+    padding: 1rem;
+}
+
+.title {
+    width: 20rem;
+}
+
+.Description {
+    width: 20rem;
+    height: 5rem;
+
+}
+
+.button {
+    border: none;
+}
+
+button {
+    background-color: rgb(249, 139, 157);
+    color: white;
+    padding: 0.6rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: none;
+    margin: 1rem;
+    width: 10rem;
+}
+
+button:hover {
+    background-color: rgb(240, 128, 147);
+}
+
+.s3 {
+    display: flex;
+}
+
+.container_left {
+
+    background-color: pink;
+    height: 5rem;
+    width: 50rem;
+}
