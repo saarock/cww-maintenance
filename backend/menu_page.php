@@ -1,3 +1,7 @@
+<?php
+// Handeling the form;
+require_once plugin_dir_path(__FILE__) . 'backend/query.php';
+?>
 <div class='page'>
     <div class="container">
         <div class="top">
