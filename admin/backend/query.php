@@ -4,7 +4,6 @@
 
    function handel_form() {
     if($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_POST['submit'])) {
-        echo "<h1>Doneff</h1>";
         $title = sanitize_text_field($_POST['Title']);
         $description = sanitize_text_field($_POST['Description']);
         $date = sanitize_text_field($_POST['Date']);
@@ -18,6 +17,8 @@
 }
 
 handel_form();
+
+
 // add_action("init", 'handel_form');
 // add_action('wp_loaded', 'handle_form');
 
