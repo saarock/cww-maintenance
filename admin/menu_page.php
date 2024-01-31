@@ -83,10 +83,12 @@ require_once plugin_dir_path(__FILE__) . 'backend/query.php';
                             <?php esc_html_e("Logo", "cww-maintenance"); ?>
                         </h3>
                         <div class="image_div">
-
+                            <img src="" alt="logo" class="logo">
                         </div>
 
-                        <button>
+                        <div class="delete">Delete logo</div>
+
+                        <button class="upload_button">
                             <?php esc_html_e("Upload logo", "cww-maintenance"); ?>
                         </button>
                     </div>
