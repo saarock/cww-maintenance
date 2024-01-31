@@ -4,13 +4,17 @@
 
 function handel_form()
 {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    $existing_form_data = get_option('my_form_data', array());
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_form'])) {
+        echo "<h1>Submit</h1>";
         // Retrieve existing form data array
-        $existing_form_data = get_option('my_form_data', array());
+
         $title = sanitize_text_field($_POST['Title']);
         $description = sanitize_text_field($_POST['Description']);
         $date = sanitize_text_field($_POST['Date']);
         $time = sanitize_text_field($_POST['Time']);
+        echo $title;
 
 
         $existing_form_data['my_form_title'] = $title;
@@ -20,6 +24,13 @@ function handel_form()
 
         // Save the updated array to options table
         update_option('my_form_data', $existing_form_data);
+    } else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['selected_template'])) {
+        $selectedTemplate = sanitize_text_field($_POST['selected_template']);
+        echo $selectedTemplate;
+        $existing_form_data['template'] = $selectedTemplate;
+        update_option('my_form_data', $existing_form_data);
+
+
     }
 }
 
