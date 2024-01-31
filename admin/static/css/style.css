@@ -3,15 +3,20 @@
     margin: 0;
 }
 
+:root {
+    --backgroundColor: rgb(0, 52, 87);
+    --hoverBack: rgb(1, 7, 11);
+    --down-button-backgroundColor: rgb(1, 30, 62);
+}
+
 .container {
     display: flex;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    background-color: pink;
+    background-color: var(--backgroundColor);
     padding: 1rem;
-    top: 2rem;
 }
 
 .all_services_top {
@@ -22,22 +27,32 @@
 
 }
 
+.mode_title {
+    border: 1px solid gray;
+    padding: 1rem;
+}
+
 .all_services_top div {
-    margin: 0.4rem;
-    cursor: pointer;
+    background-color: var(--backgroundColor);
+    color: white;
+    padding: 0.6rem;
     font-size: 1.3rem;
-    background-color: gainsboro;
-    padding: 0.5rem;
-    border-radius: 0.4rem;
+    cursor: pointer;
+    border: none;
+    margin: 0.4rem;
+    width: 10rem;
 }
 
 .all_services_top div:hover {
-    background-color: gray;
+    background-color: var(--hoverBack);
     color: white;
 
 }
 
 .services {
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    padding: 0.3rem;
     display: none;
 }
 
@@ -81,7 +96,7 @@
 }
 
 button {
-    background-color: rgb(249, 139, 157);
+    background-color: rgb(0, 65, 91);
     color: white;
     padding: 0.6rem;
     font-size: 1.3rem;
@@ -91,8 +106,19 @@ button {
     width: 10rem;
 }
 
+
+
 button:hover {
-    background-color: rgb(240, 128, 147);
+    background-color: rgb(1, 7, 11);
+}
+
+.button:active {
+    outline: 2px solid white;
+}
+
+
+.button:focus {
+    outline: 2px solid white;
 }
 
 .s3 {
@@ -101,7 +127,39 @@ button:hover {
 
 .container_left {
 
-    background-color: pink;
+    background: linear-gradient(rgb(102, 50, 59), rgb(141, 11, 11));
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 5rem;
     width: 50rem;
 }
+
+.top_left h1 {
+    color: white;
+}
+
+.feature_button {
+    background-color: red;
+}
+
+
+/*Website mode page css start */
+
+.modes {
+    display: flex;
+}
+
+.mode {
+    background-color: var(--down-button-backgroundColor);
+    color: white;
+    margin-left: 0.4rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.mode_page {
+    display: none;
+}
+
+/* Website mode page css end */
