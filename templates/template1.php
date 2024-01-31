@@ -9,8 +9,8 @@ $target_datetime = strtotime($my_form_date . ' ' . $my_form_time);
 
 ?>
 <div class="template1 comming_soon">
-    <h1> <?php echo $my_form_title; ?></h1>
-    <p> <?php echo $my_form_description; ?></p>
+    <h1> <?php echo esc_html($my_form_title); ?></h1>
+    <p> <?php echo esc_html($my_form_description); ?></p>
 <div class="timer" data-target="<?php echo $target_datetime; ?>">
     <div class="date">
     <?php echo $my_form_date; ?>
