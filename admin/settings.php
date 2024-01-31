@@ -26,11 +26,20 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
 
         public function enqueue_scripts_and_styles_admin()
         {
-            // Enqueue script
-            wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . 'static/js/script.js', array('jquery'), '1.0', true);
+            if (isset($_GET['page']) && $_GET['page'] == 'cww_maintenance') {
+                
+                if ( function_exists( 'wp_enqueue_media' ) ) {
+                    wp_enqueue_media();
+                } 
 
-            // Enqueue style
-            wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'static/css/style.css', array(), '1.0');
+                // Enqueue script
+                wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . 'static/js/script.js', array('jquery'), '1.0', true);
+
+                // Enqueue style
+                wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'static/css/style.css', array(), '1.0');
+
+            }
+
         }
 
 

@@ -14,19 +14,21 @@ if (!class_exists('Cww_Maintenance')):
         public function enqueue_scripts_and_styles()
         {
             // Enqueue script
-            wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . 'frontend/static/js/script.js', array('jquery'), '1.0', true);
-            wp_enqueue_script('coming-soon-script', plugin_dir_url(__FILE__) . 'template_scripts/js/template1.js', array('jquery'), '1.0', true);
+            wp_enqueue_script('front-script', plugin_dir_url(__FILE__) . 'frontend/static/js/script.js', array('jquery'), '1.0', true);
+
 
             // Enqueue style
-            wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'frontend/static/css/style.css', array(), '1.0');
-            wp_enqueue_style('coming-soon-styles', plugin_dir_url(__FILE__) . 'template_scripts/css/template1.css');
+            wp_enqueue_style('front-style', plugin_dir_url(__FILE__) . 'frontend/static/css/style.css', array(), '1.0');
+            // styles for the template;
+            // wp_enqueue_style('coming-soon-styles', plugin_dir_url(__FILE__) . 'static/css/template.css');
         }
 
 
         public function coming_soon_init()
         {
+            // get_options
             if (!is_admin() && is_user_logged_in()) {
-                require_once "templates/template1.php";
+                require_once 'frontend/templates/template1.php';
             }
         }
     }

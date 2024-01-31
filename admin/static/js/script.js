@@ -1,3 +1,5 @@
+"use strict"
+
 var services = document.querySelectorAll('.services');
 var featureButton = document.getElementsByClassName('feature_button');
 var mode = document.querySelectorAll('.mode');
@@ -5,8 +7,9 @@ var modePages = document.getElementsByClassName('mode_page');
 var uploadButton = document.querySelector('.upload_button');
 var logo = document.querySelector(".logo");
 var deleteButton = document.querySelector(".delete");
-var track = 0;
 
+
+// Show the features
 function showFeature() {
 
     [...featureButton].map((currentButton, index) => {
@@ -45,18 +48,23 @@ function showFeature() {
 
 showFeature();
 
+
+
 function globalFuction() {
     featureButton[0].style.backgroundColor = "rgb(1, 7, 11)";
     services[0].style.display = 'block';
     modePages[0].style.display = "block";
 
 }
+
+// Default features;
 globalFuction();
 
 
 
 
 
+// Web mode
 function webMode(index) {
     if (index === 0) {
         modePages[index].style.display = "block";
@@ -91,7 +99,8 @@ function setImage(e) {
     console.log(file)
     const imgUrl = URL.createObjectURL(file);
     logo.src = imgUrl;
-    deleteButton.classList.add('show');
+    deleteButton.style.display = "block";
+
 
 
 
@@ -99,19 +108,22 @@ function setImage(e) {
 
 
 
-uploadButton.addEventListener('click', () => {
-    const logoImage = document.querySelector('.logo');
-    logoImage.style.display = "block";
-    const inputFile = document.createElement('input');
-    inputFile.setAttribute("type", 'file');
-    inputFile.classList.add("logoSelect");
-    if (track === 1) {
-        const logoSelect = document.querySelector('.logoSelect');
-        logoSelect.value = '';
-    }
-    inputFile.click();
-    inputFile.addEventListener("change", setImage);
-});
+// uploadButton.addEventListener('click', () => {
+
+//     const inputFile = document.createElement('input');
+//     inputFile.setAttribute("type", 'file');
+//     inputFile.classList.add("logoSelect");
+//     inputFile.click();
+//     inputFile.addEventListener("change", setImage);
+//     const logoImage = document.querySelector('.logo');
+//     logoImage.style.display = "block";
+
+
+
+
+
+
+// });
 
 
 
@@ -122,7 +134,32 @@ deleteButton.addEventListener('click', () => {
     const logoImage = document.querySelector('.logo');
     logoImage.style.display = "none";
     deleteButton.style.display = "none";
-    if (track === 0) {
-        track++
-    }
+
 });
+
+
+
+
+// Jquery
+(function ($) {
+    $(document).on('click', '.upload_button', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var image = wp.media({
+            title: 'Upload Image',
+            // mutiple: true if you want to upload multiple files at once
+            multiple: false
+        }).open()
+            .on('select', function (e) {
+                // This will return the selected image from the Media Uploader, the result is an object
+                var uploaded_image = image.state().get('selection').first();
+                // We convert uploaded_image to a JSON object to make accessing it easier
+                // Output to the console uploaded_image
+                var image_url = uploaded_image.toJSON().url;
+                // Let's assign the url value to the input field
+                $this.prev('.img-input-selector').val(image_url);
+
+            });
+    });
+
+})(jQuery);

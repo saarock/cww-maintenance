@@ -6,6 +6,7 @@
  * Author: CodeHons
  */
 
+
 if (!defined('WPINC')) {
     die();
 }
@@ -21,4 +22,3 @@ define('CWW_MAINTENANCE_URL', plugins_url('/', CWW_MAINTENANCE_FILE));
 
 require_once CWW_MAINTENANCE_PATH . 'cww-maintenance-class.php';
 require_once CWW_MAINTENANCE_PATH . 'admin/settings.php';
-require_once CWW_MAINTENANCE_PATH . 'frontend/settings.php';
