@@ -142,7 +142,7 @@ deleteButton.addEventListener('click', () => {
 
 // Jquery
 (function ($) {
-    $(document).on('click', '.upload_button', function (e) {
+    $(document).on('click', '.cww_upload_button', function (e) {
         e.preventDefault();
         var $this = $(this);
         var image = wp.media({

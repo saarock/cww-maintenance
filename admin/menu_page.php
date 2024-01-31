@@ -77,25 +77,18 @@ require_once plugin_dir_path(__FILE__) . 'backend/query.php';
                         <img src="<?php echo CWW_MAINTENANCE_URL . 'admin/static/images/template2.png' ?>" border="0" />
                         <p>Template 1</p>
                         <div class="cww_active">
-                            <button type="selected_template" name="selected_template" value="template1"
-                                class="cww_active_button">
-                                <?php esc_html_e("Activew", "cww-maintenance") ?>
-                            </button>
-                            <button type="selected_template" class="cww_golive_button">
-                                <?php esc_html_e("Go live", "cww-maintenance") ?>
-                            </button>
+                            <input type="radio" name="selected_template" value="template1" class="cww_active_button">
+                            <?php esc_html_e("Activew", "cww-maintenance") ?>
+                            </input>
                         </div>
                     </div>
                     <div class="cww_template">
                         <img src="<?php echo CWW_MAINTENANCE_URL . 'admin/static/images/template2.png' ?>" border="0" />
                         <p>Template 2</p>
                         <div class="cww_active">
-                            <button type="submit" name="selected_template" value="template2" class="cww_active_button">
-                                <?php esc_html_e("Active", "cww-maintenance") ?>
-                            </button>
-                            <button type="selected_template" class="cww_golive_button">
-                                <?php esc_html_e("Go live", "cww-maintenance") ?>
-                            </button>
+                            <input type="radio" name="selected_template" value="template2" class="cww_active_button">
+                            <?php esc_html_e("Active", "cww-maintenance") ?>
+                            </input>
                         </div>
                     </div>
 
@@ -103,17 +96,19 @@ require_once plugin_dir_path(__FILE__) . 'backend/query.php';
                         <img src="<?php echo CWW_MAINTENANCE_URL . 'admin/static/images/template2.png' ?>" border="0" />
                         <p>Template 3</p>
                         <div class="cww_active">
-                            <button type="submit" name="selected_template" value="template3" class="cww_active_button">
-                                <?php esc_html_e("Active", "cww-maintenance") ?>
-                            </button>
-                            <button type="selected_template" class="cww_golive_button">
-                                <?php esc_html_e("Go live", "cww-maintenance") ?>
-                            </button>
+                            <input type="radio" name="selected_template" value="template3" class="cww_active_button">
+                            <?php esc_html_e("Active", "cww-maintenance") ?>
+                            </input>
                         </div>
                     </div>
 
+
                 </div>
+                <button type="submit" name="submit_template" class="cww_golive_button">
+                    <?php esc_html_e("Save template", "cww-maintenance") ?>
+                </button>
             </form>
+
         </div>
 
         <div class="services">
