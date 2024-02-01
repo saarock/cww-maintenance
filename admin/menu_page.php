@@ -80,7 +80,7 @@ $user_template = $user_options['template'];
                 <div class="cww_templates">
                     <div class="cww_template">
 
-                        <img src="<?php echo CWW_MAINTENANCE_URL . 'admin/static/images/template2.png' ?>" border="0" />
+                        <img src="<?php echo CWW_MAINTENANCE_URL . 'admin/static/images/template1.png' ?>" border="0" />
                         <p>Template 1</p>
                         <div class="cww_active">
                             <input type="radio" name="selected_template" value="template1" class="cww_active_button"
