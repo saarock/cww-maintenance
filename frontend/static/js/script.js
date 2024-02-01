@@ -2,8 +2,11 @@
 var dateElement = document.querySelector(".date");
 var timeElement = document.querySelector(".time");
 var timeSecond = document.querySelector(".second");
-var expireDate = new Date(dateElement.innerHTML + " " + timeElement.innerHTML)
-var expireTime = expireDate.getTime()
+var expireDate = new Date(dateElement.innerHTML + " " + timeElement.innerHTML);
+var expireTime = expireDate.getTime();
+var menuOpen = document.getElementsByClassName('cww_openform_button')[0];
+var form = document.querySelector('.cww_template2_form');
+var cutForm = document.querySelector(".cww_form_cut");
 
 
 
@@ -18,14 +21,22 @@ setInterval(() => {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     dateElement.innerHTML = days + " Days";
-    // if (hours < 11) {
-    //     timeElement.innerHTML = hours + "0" + ": " + minutes;
-    // } else {
     timeElement.innerHTML = hours + ": " + minutes;
-    // }
-
     timeSecond.innerHTML = seconds;
 }, 1000);
 
 
-// Donont show if the 
+
+
+// click menu to open form
+menuOpen.addEventListener('click', () => {
+    form.classList.add("cww_showtemplate2_form");
+});
+
+
+//Click cut form to remove the form
+cutForm.addEventListener('click', () => {
+    form.classList.remove("cww_showtemplate2_form");
+
+});
+

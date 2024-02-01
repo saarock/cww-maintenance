@@ -1,12 +1,14 @@
 "use strict"
 
-var services = document.querySelectorAll('.services');
-var featureButton = document.getElementsByClassName('feature_button');
-var mode = document.querySelectorAll('.mode');
-var modePages = document.getElementsByClassName('mode_page');
-var uploadButton = document.querySelector('.upload_button');
-var logo = document.querySelector(".logo");
-var deleteButton = document.querySelector(".delete");
+var services = document.querySelectorAll('.cww_services');
+var featureButton = document.getElementsByClassName('cww_feature_button');
+var mode = document.querySelectorAll('.cww_mode');
+var modePages = document.getElementsByClassName('cww_mode_page');
+var uploadButton = document.querySelector('.cww_upload_button');
+var logo = document.querySelector(".cww_userselected_logo");
+var deleteButton = document.querySelector(".cww_delete");
+var deleteButtonBack = document.querySelector(".cww_maintenance_delete_background_image");
+var cwwMaintenanceUserselectedBackgroundImage = document.querySelector(".cww_maintenance_userselected_background_image");
 
 
 // Show the features
@@ -94,53 +96,32 @@ mode.forEach((current, index) => {
 
 
 
-function setImage(e) {
-    const file = e.target.files[0];
-    console.log(file)
-    const imgUrl = URL.createObjectURL(file);
-    logo.src = imgUrl;
-    deleteButton.style.display = "block";
 
 
 
 
-}
-
-
-
-// uploadButton.addEventListener('click', () => {
-
-//     const inputFile = document.createElement('input');
-//     inputFile.setAttribute("type", 'file');
-//     inputFile.classList.add("logoSelect");
-//     inputFile.click();
-//     inputFile.addEventListener("change", setImage);
-//     const logoImage = document.querySelector('.logo');
-//     logoImage.style.display = "block";
-
-
-
-
-
-
-// });
-
-
-
-
-
-// delete
+// delete the seelcted image
 deleteButton.addEventListener('click', () => {
-    const logoImage = document.querySelector('.logo');
+    const logoImage = document.querySelector('.cww_userselected_logo');
     logoImage.style.display = "none";
     deleteButton.style.display = "none";
+    const imgInput = document.querySelector('.cww_img-src-save');
+
+    // Let's assign the url value to the input field
+    // $this.prev('.cww_img-src-save').val(image_url);
+    imgInput.value = "";
 
 });
 
+// Vanilla javascript end 
+
+
+// Jquery start 
 
 
 
-// Jquery
+
+// upload the logo
 (function ($) {
     $(document).on('click', '.cww_upload_button', function (e) {
         e.preventDefault();
@@ -151,14 +132,67 @@ deleteButton.addEventListener('click', () => {
             multiple: false
         }).open()
             .on('select', function (e) {
+                const logoImage = document.querySelector('.cww_userselected_logo');
+                logoImage.style.display = "block";
                 // This will return the selected image from the Media Uploader, the result is an object
                 var uploaded_image = image.state().get('selection').first();
                 // We convert uploaded_image to a JSON object to make accessing it easier
                 // Output to the console uploaded_image
                 var image_url = uploaded_image.toJSON().url;
-                // Let's assign the url value to the input field
-                $this.prev('.img-input-selector').val(image_url);
+                console.log(image_url);
+                logo.src = image_url;
+                deleteButton.style.display = "block";
+                const imgInput = document.querySelector('.cww_maintenance_logo_img-src-save');
 
+                // Let's assign the url value to the input field
+                // $this.prev('.cww_img-src-save').val(image_url);
+                imgInput.value = image_url;
+            });
+    });
+
+})(jQuery);
+
+
+
+// Upload the background image
+
+deleteButtonBack.addEventListener('click', () => {
+    const backImage = document.querySelector('.cww_maintenance_userselected_background_image');
+    backImage.style.display = "none";
+    deleteButtonBack.style.display = "none";
+    const imgInput = document.querySelector('.cww_maintenance_back_img-src-save');
+
+    // Let's assign the url value to the input field
+    // $this.prev('.cww_img-src-save').val(image_url);
+    imgInput.value = "";
+
+});
+
+(function ($) {
+    $(document).on('click', '.cww_maintenance_upload_back_button', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var image = wp.media({
+            title: 'Upload Image',
+            // mutiple: true if you want to upload multiple files at once
+            multiple: false
+        }).open()
+            .on('select', function (e) {
+                const logoImage = document.querySelector('.cww_maintenance_userselected_background_image');
+                logoImage.style.display = "block";
+                // This will return the selected image from the Media Uploader, the result is an object
+                var uploaded_image = image.state().get('selection').first();
+                // We convert uploaded_image to a JSON object to make accessing it easier
+                // Output to the console uploaded_image
+                var image_url = uploaded_image.toJSON().url;
+                console.log(image_url);
+                cwwMaintenanceUserselectedBackgroundImage.src = image_url;
+                deleteButtonBack.style.display = "block";
+                const imgInput = document.querySelector('.cww_maintenance_back_img-src-save');
+                e
+                // Let's assign the url value to the input field
+                // $this.prev('.cww_img-src-save').val(image_url);
+                imgInput.value = image_url;
             });
     });
 

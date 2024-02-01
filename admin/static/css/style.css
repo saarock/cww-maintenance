@@ -10,7 +10,7 @@
     --down-button-backgroundColor: rgb(1, 30, 62);
 }
 
-.container {
+.cww_container {
     display: flex;
     display: flex;
     justify-content: space-between;
@@ -20,20 +20,16 @@
     padding: 1rem;
 }
 
-.all_services_top {
+.cww_all_services_top {
     display: flex;
-
-
-
-
 }
 
-.mode_title {
+.cww_mode_title {
     border: 1px solid gray;
     padding: 1rem;
 }
 
-.all_services_top div {
+.cww_all_services_top div {
     background-color: var(--backgroundColor);
     color: white;
     padding: 0.6rem;
@@ -44,35 +40,31 @@
     width: 10rem;
 }
 
-.all_services_top div:hover {
+.cww_all_services_top div:hover {
     background-color: var(--hoverBack);
     color: white;
-
 }
 
-
-
-.services {
+.cww_services {
     border-right: 2px solid gray;
     border-top: 2px solid gray;
     padding: 0.3rem;
     display: none;
 }
 
-.image_div {
+.cww_image_div {
     height: 6rem;
     background-color: gray;
     width: 6rem;
     margin: 1rem;
-
 }
 
-.logo {
+.cww_userselected_logo {
     width: 100%;
     height: 100%;
 }
 
-.delete {
+.cww_delete {
     background-color: var(--deletebackgroundColor);
     color: white;
     padding: 0.6rem;
@@ -84,38 +76,36 @@
     display: none;
 }
 
-.show {
+.cww_show {
     display: block;
 }
 
-.settings_div {
+.cww_settings_div {
     border: 2px solid rgba(128, 128, 128, 0.331);
     padding: 1rem;
     width: 60%;
 }
 
-.setting_top {
-
+.cww_setting_top {
     border: 2px solid rgba(128, 128, 128, 0.331);
     padding: 1rem;
 }
 
-.setting_middle {
+.cww_setting_middle {
     border: 2px solid rgba(128, 128, 128, 0.331);
     padding: 1rem;
 }
 
-.title {
+.cww_title {
     width: 20rem;
 }
 
-.Description {
+.cww_Description {
     width: 20rem;
     height: 5rem;
-
 }
 
-.button {
+.cww_button {
     border: none;
 }
 
@@ -130,27 +120,23 @@
     width: 10rem;
 }
 
-
-
 .cww_upload_button:hover {
     background-color: rgb(1, 7, 11);
 }
 
-.button:active {
+.cww_button:active {
     outline: 2px solid white;
 }
 
-
-.button:focus {
+.cww_button:focus {
     outline: 2px solid white;
 }
 
-.s3 {
+.cww_s3 {
     display: flex;
 }
 
-.container_left {
-
+.cww_container_left {
     background: linear-gradient(rgb(102, 50, 59), rgb(141, 11, 11));
     background-position: center;
     background-size: cover;
@@ -159,22 +145,51 @@
     width: 50rem;
 }
 
-.top_left h1 {
+.cww_top_left h1 {
     color: white;
 }
 
-.feature_button {
+.cww_feature_button {
     background-color: red;
 }
 
+.cww_maintenance_delete_background_image {
+    display: none;
+}
+
+.cww_maintenance_back_image_div {
+    width: 10rem;
+    height: 10rem;
+
+}
+
+.cww_maintenance_userselected_background_image {
+    width: 100%;
+    height: 100%;
+}
+
+.cww_maintenance_delete_background_image {
+    background-color: red;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.cww_maintenance_logo_img-src-save {
+    display: none;
+}
+
+.cww_maintenance_back_img-src-save {
+    display: none;
+}
 
 /*Website mode page css start */
 
-.modes {
+.cww_modes {
     display: flex;
 }
 
-.mode {
+.cww_mode {
     background-color: var(--down-button-backgroundColor);
     color: white;
     margin-left: 0.4rem;
@@ -182,18 +197,16 @@
     cursor: pointer;
 }
 
-.mode_page {
+.cww_mode_page {
     display: none;
 }
 
 /* Website mode page css end */
 
+/* Template choose css start*/
 
-
-/* Template 2 css start*/
 .cww_templates {
     display: flex;
-
 }
 
 .cww_template {
@@ -207,13 +220,15 @@
 .cww_template img {
     width: 100%;
     height: 100;
-
 }
 
-/* Template 2 css end */
+.cww_img-src-save {
+    display: none;
+}
+
+/* Template choose css end */
 
 /* Active button css start */
-
 
 .cww_active_button {
     font-size: 1.5rem;
@@ -221,7 +236,6 @@
 
 .cww_golive_button {
     font-size: 1.5rem;
-
 }
 
 /* Active button css end */

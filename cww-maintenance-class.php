@@ -7,7 +7,7 @@ if (!class_exists('Cww_Maintenance')):
         public function __construct()
         {
             add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts_and_styles'));
-            add_action('init', array($this, 'coming_soon_init'));
+
 
         }
 
@@ -24,13 +24,6 @@ if (!class_exists('Cww_Maintenance')):
         }
 
 
-        public function coming_soon_init()
-        {
-            // get_options
-            if (!is_admin() && is_user_logged_in()) {
-                require_once 'frontend/templates/template1.php';
-            }
-        }
     }
 
     $cww_maintenance_instance = new Cww_Maintenance();
