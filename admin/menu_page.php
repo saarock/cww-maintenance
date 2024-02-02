@@ -208,6 +208,7 @@ $user_template = $user_options['template'];
 
 
                 </div>
+
                 <div class="left">
                     <div class="settings_div">
                         <div class="setting_top">
