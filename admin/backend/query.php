@@ -30,9 +30,7 @@ function handel_form()
         // Save the updated array to options table
         $result = update_option('user_options', $existing_form_data);
     } else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_template'])) {
-        echo "<h1>selected</h1>";
         $selectedTemplate = sanitize_text_field($_POST['selected_template']);
-        echo $selectedTemplate;
         $existing_form_data['template'] = $selectedTemplate;
         update_option('user_options', $existing_form_data);
 

@@ -33,6 +33,9 @@ $user_template = $user_options['template'];
             <div class="cww_settings cww_feature_button">
                 <?php esc_html_e("Settings", "cww-maintenance"); ?>
             </div>
+            <div class="cww_links cww_feature_button">
+                <?php esc_html_e("Social medias", "cww-maintenance"); ?>
+            </div>
             <!-- <div class="cww_links cww_feature_button">
                 <?php esc_html_e("Link account", "cww-maintenance"); ?>
             </div> -->
@@ -222,5 +225,98 @@ $user_template = $user_options['template'];
 
 
         </div>
+
+
+
+        <div class="cww_services">
+            <h1>Hello world</h1>
+            <?php
+            $sf_forms_settings = get_option('user_options', array());
+            $sf_forms_settings = isset($user_options['icon']) ? $user_options['icon'] : "icofont-ui-chat";
+
+            $icon = $sf_forms_settings;
+            ?>
+            <div class="sf-forms-icon-box">
+                <div class="sf-forms-selected-icon">
+                    <i class="<?php echo esc_attr($icon) ?>"></i>
+                    <span><i class="icofont-simple-down"></i></span>
+                </div>
+                <div class="sf-forms-icon-box">
+                    <div class="sf-forms-icon-search">
+                        <select>
+                            <option value="icofont-list">
+                                <?php esc_html_e('Ico Font', 'cww_maintenance') ?>
+                            </option>
+                            <option value="fontawesome-list">
+                                <?php esc_html_e('Font Awesome', 'cww_maintenance') ?>
+                            </option>
+                            <option value="essential-icon-list">
+                                <?php esc_html_e('Essential Icon', 'cww_maintenance') ?>
+                            </option>
+                            <option value="material-icon-list">
+                                <?php esc_html_e('Material Icon', 'cww_maintenance') ?>
+                            </option>
+                            <option value="elegant-icon-list">
+                                <?php esc_html_e('Elegant Icon', 'cww_maintenance') ?>
+                            </option>
+                        </select>
+                        <input type="text" class="sf-forms-icon-search-input"
+                            placeholder="<?php esc_attr_e('Type to filter', 'cww_maintenance') ?>" />
+                    </div>
+
+
+                    <ul class="sf-forms-icon-list icofont-list clearfix active">
+                        <?php
+                        $cww_maintenance_forms_icofont_icon_array = cww_maintenance_icons::cww_maintenance_forms_icofont_icon_array();
+                        foreach ($cww_maintenance_forms_icofont_icon_array as $sfm_icofont_icon) {
+                            $icon_class = $icon == $sfm_icofont_icon ? 'icon-active' : '';
+                            echo '<li class=' . esc_attr($icon_class) . '><i class="' . esc_attr($sfm_icofont_icon) . '"></i></li>';
+                        }
+                        echo '</ul>';
+
+
+                        echo '<ul class="sf-forms-icon-list fontawesome-list clearfix">';
+                        $cww_maintenance_forms_font_awesome_icon_array = cww_maintenance_icons::cww_maintenance_icons_array();
+                        foreach ($cww_maintenance_forms_font_awesome_icon_array as $sfm_font_awesome_icon) {
+                            $icon_class = $icon == $sfm_font_awesome_icon ? 'icon-active' : '';
+                            echo '<li class=' . esc_attr($icon_class) . '><i class="' . esc_attr($sfm_font_awesome_icon) . '"></i></li>';
+                        }
+                        echo '</ul>';
+
+
+                        echo '<ul class="sf-forms-icon-list essential-icon-list clearfix">';
+                        $cww_maintenance_forms_essential_icon_array = cww_maintenance_icons::cww_maintenance_forms_essential_icon_array();
+                        foreach ($cww_maintenance_forms_essential_icon_array as $sfm_essential_icon) {
+                            $icon_class = $icon == $sfm_essential_icon ? 'icon-active' : '';
+                            echo '<li class=' . esc_attr($icon_class) . '><i class="' . esc_attr($sfm_essential_icon) . '"></i></li>';
+                        }
+                        echo '</ul>';
+
+
+                        echo '<ul class="sf-forms-icon-list material-icon-list clearfix">';
+                        $sff_materialdesignicons_icon_array = cww_maintenance_icons::cww_maintenance_forms_materialdesignicons_array();
+                        foreach ($sff_materialdesignicons_icon_array as $sfm_materialdesignicons_icon) {
+                            $icon_class = $icon == $sfm_materialdesignicons_icon ? 'icon-active' : '';
+                            echo '<li class=' . esc_attr($icon_class) . '><i class="' . esc_attr($sfm_materialdesignicons_icon) . '"></i></li>';
+                        }
+                        echo '</ul>';
+
+
+                        echo '<ul class="sf-forms-icon-list elegant-icon-list clearfix">';
+                        $sfm_eleganticons_icon_array = cww_maintenance_icons::cww_maintenance_forms_sfm_eleganticons_array();
+                        foreach ($sfm_eleganticons_icon_array as $sfm_eleganticons_icon) {
+                            $icon_class = $icon == $sfm_eleganticons_icon ? 'icon-active' : '';
+                            echo '<li class=' . esc_attr($icon_class) . '><i class="' . esc_attr($sfm_eleganticons_icon) . '"></i></li>';
+                        }
+                        echo '</ul>';
+
+
+                        echo '</div>';
+                        echo '<input class="sf-forms-icon" type="hidden" value="' . esc_attr($icon) . '" name="sf_forms_settings[icon]" data-default="icofont-ui-chat"/>';
+                        echo '</div>';
+                        ?>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>

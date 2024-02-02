@@ -11,6 +11,7 @@ var deleteButtonBack = document.querySelector(".cww_maintenance_delete_backgroun
 var cwwMaintenanceUserselectedBackgroundImage = document.querySelector(".cww_maintenance_userselected_background_image");
 
 
+
 // Show the features
 function showFeature() {
 
@@ -20,9 +21,12 @@ function showFeature() {
                 services[index].style.display = 'block';
                 services[1].style.display = 'none';
                 services[2].style.display = 'none';
+                services[3].style.display = 'none';
                 currentButton.style.backgroundColor = "rgb(1, 7, 11)";
                 featureButton[1].style.backgroundColor = "rgb(0, 65, 91)";
                 featureButton[2].style.backgroundColor = "rgb(0, 65, 91)";
+                featureButton[3].style.backgroundColor = "rgb(0, 65, 91)";
+
 
 
             } else if (index === 1) {
@@ -32,6 +36,8 @@ function showFeature() {
                 currentButton.style.backgroundColor = "rgb(1, 7, 11)";
                 featureButton[0].style.backgroundColor = "rgb(0, 65, 91)";
                 featureButton[2].style.backgroundColor = "rgb(0, 65, 91)";
+                featureButton[3].style.backgroundColor = "rgb(0, 65, 91)";
+
 
             } else if (index === 2) {
                 services[index].style.display = 'block';
@@ -40,6 +46,16 @@ function showFeature() {
                 currentButton.style.backgroundColor = "rgb(1, 7, 11)";
                 featureButton[1].style.backgroundColor = "rgb(0, 65, 91)";
                 featureButton[0].style.backgroundColor = "rgb(0, 65, 91)";
+                featureButton[3].style.backgroundColor = "rgb(0, 65, 91)";
+            } else if (index === 3) {
+                services[3].style.display = 'block';
+                services[1].style.display = 'none';
+                services[2].style.display = 'none';
+                services[0].style.display = 'none';
+                currentButton.style.backgroundColor = "rgb(1, 7, 11)";
+                featureButton[1].style.backgroundColor = "rgb(0, 65, 91)";
+                featureButton[0].style.backgroundColor = "rgb(0, 65, 91)";
+                featureButton[2].style.backgroundColor = "rgb(0, 65, 91)";
             }
 
 
