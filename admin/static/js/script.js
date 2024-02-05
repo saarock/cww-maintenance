@@ -22,17 +22,20 @@ function showFeature() {
                 services[1].style.display = 'none';
                 services[2].style.display = 'none';
                 services[3].style.display = 'none';
+                services[3].style.display = 'none';
+
                 currentButton.style.backgroundColor = "rgb(1, 7, 11)";
                 featureButton[1].style.backgroundColor = "rgb(0, 65, 91)";
                 featureButton[2].style.backgroundColor = "rgb(0, 65, 91)";
                 featureButton[3].style.backgroundColor = "rgb(0, 65, 91)";
 
 
-
             } else if (index === 1) {
                 services[index].style.display = 'block';
                 services[0].style.display = 'none';
                 services[2].style.display = 'none';
+                services[3].style.display = 'none';
+
                 currentButton.style.backgroundColor = "rgb(1, 7, 11)";
                 featureButton[0].style.backgroundColor = "rgb(0, 65, 91)";
                 featureButton[2].style.backgroundColor = "rgb(0, 65, 91)";
@@ -43,6 +46,8 @@ function showFeature() {
                 services[index].style.display = 'block';
                 services[1].style.display = 'none';
                 services[0].style.display = 'none';
+                services[3].style.display = 'none';
+
                 currentButton.style.backgroundColor = "rgb(1, 7, 11)";
                 featureButton[1].style.backgroundColor = "rgb(0, 65, 91)";
                 featureButton[0].style.backgroundColor = "rgb(0, 65, 91)";
