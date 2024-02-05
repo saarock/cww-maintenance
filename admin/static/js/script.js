@@ -185,6 +185,11 @@ deleteButtonBack.addEventListener('click', () => {
 });
 
 (function ($) {
+
+
+
+
+
     $(document).on('click', '.cww_maintenance_upload_back_button', function (e) {
         e.preventDefault();
         var $this = $(this);
@@ -212,4 +217,74 @@ deleteButtonBack.addEventListener('click', () => {
             });
     });
 
+
+    /**
+         * Icon picker
+         * 
+         */
+    var delay = (function () {
+        var timer = 0;
+        return function (callback, ms) {
+            clearTimeout(timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $('body').on('click', '.sf-forms-icon-box .sf-forms-icon-list li', function () {
+        var icon_class = $(this).find('i').attr('class');
+        $(this).closest('.sf-forms-icon-box').find('.sf-forms-icon-list li').removeClass('icon-active');
+        $(this).addClass('icon-active');
+        $(this).closest('.sf-forms-icon-box').prev('.sf-forms-selected-icon').children('i').attr('class', '').addClass(icon_class);
+        $(this).closest('.sf-forms-icon-box').next('input').val(icon_class).trigger('change');
+        $(this).closest('.sf-forms-icon-box').slideUp();
+    });
+
+    $('body').on('click', '.sf-forms-icon-box .sf-forms-selected-icon', function () {
+        $(this).next().slideToggle();
+    });
+
+    $('body').on('change', '.sf-forms-icon-box .sf-forms-icon-search select', function () {
+        var selected = $(this).val();
+        $(this).closest('.sf-forms-icon-box').find('.sf-forms-icon-search-input').val('');
+        $(this).closest('.sf-forms-icon-box').find('.sf-forms-icon-list li').show();
+        $(this).closest('.sf-forms-icon-box').find('.sf-forms-icon-list').hide().removeClass('active');
+        $(this).closest('.sf-forms-icon-box').find('.' + selected).fadeIn().addClass('active');
+    });
+
+    $('body').on('keyup', '.sf-forms-icon-box .sf-forms-icon-search input', function (e) {
+        var $input = $(this);
+        var keyword = $input.val().toLowerCase();
+        var search_criteria = $input.closest('.sf-forms-icon-box').find('.sf-forms-icon-list.active i');
+
+        delay(function () {
+            $(search_criteria).each(function () {
+                if ($(this).attr('class').indexOf(keyword) > -1) {
+                    $(this).parent().show();
+                } else {
+                    $(this).parent().hide();
+                }
+            });
+        }, 500);
+    });
+
+
+    $(".cww-multiselect-values,#toggle_font_family").chosen({
+        width: "95%"
+    });
+
+    $('body').on('change', '#container_bg_type', function () {
+        var currentBG = $(this).val();
+
+        if (currentBG == 'color') {
+            $(this).parent().parent().next().next('.wrapper-bg-type-img').removeClass('active');
+            $(this).parent().parent().next('.wrapper-bg-type-color').toggleClass('active');
+        } else {
+            $(this).parent().parent().next('.wrapper-bg-type-color').removeClass('active');
+            $(this).parent().parent().next().next('.wrapper-bg-type-img').toggleClass('active');
+        }
+    });
+
 })(jQuery);
+
+
+
+

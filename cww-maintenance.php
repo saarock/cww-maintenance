@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: cww-maintenance
+ * Plugin Name: CWW Maintenance
  * Description: Display the coming soon page with extra functions
  * Version: 1.0
  * Author: CodeHons
