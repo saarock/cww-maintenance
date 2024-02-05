@@ -31,7 +31,7 @@ $user_back_img = isset($user_options['user_background_image']) ? $user_options['
             <?php echo esc_html($my_form_description); ?>
         </p>
     </div>
-    <div class="timer" data-target="<?php echo $target_datetime; ?>">
+    <div class="timer">
         <h3 class="cww_maintenance_template1_timer_title">
             <?php echo esc_html($user_timer_title); ?>
         </h3>
