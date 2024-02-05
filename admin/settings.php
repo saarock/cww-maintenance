@@ -11,14 +11,11 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
         public function __construct()
         {
 
-            // $this->settings();
-
             add_action('admin_menu', array($this, 'add_admin_menu'));
             add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts_and_styles_admin'));
             $this->files_icons();
             add_action('init', array($this, 'settings'), 10);
             add_action('init', array($this, 'coming_soon_init'), 11);
-            // add_action('init', array($this, 'handel_form'), 12);
 
         }
 
@@ -44,6 +41,7 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
 
                 // Enqueue script
                 wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . 'static/js/script.js', array('jquery'), CWW_MAINTENANCE_VERSION, true);
+
                 // Enqueue style
                 wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'static/css/style.css', array(), CWW_MAINTENANCE_VERSION);
 
@@ -55,10 +53,6 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
                 wp_enqueue_style('essentialicon', plugin_dir_url(__FILE__) . 'static/css/essentialicon.min.css', array(), CWW_MAINTENANCE_VERSION);
                 wp_enqueue_style('icofont', plugin_dir_url(__FILE__) . 'static/css/icofont.min.css', array(), CWW_MAINTENANCE_VERSION);
                 wp_enqueue_style('sticky-floating-forms-admin', plugin_dir_url(__FILE__) . 'css/admin.css', array(), CWW_MAINTENANCE_VERSION);
-                // wp_enqueue_style('chosen', plugin_dir_url(__FILE__) . 'chosen/chosen.min.css', array(), STICKY_FLOATING_FORMS_VER);
-                // wp_enqueue_style('spectrum', plugin_dir_url(__FILE__) . 'spectrum/spectrum.min.css', array(), STICKY_FLOATING_FORMS_VER);
-                // wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'static/css/icofont.css', array(), '1.0');
-                // wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'static/css/icofont.min.css', array(), '1.0');
 
             }
 
@@ -106,7 +100,6 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
                 update_option('user_options', $existing_form_data);
 
             }
-
         }
 
         public function files_icons()

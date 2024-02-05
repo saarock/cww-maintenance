@@ -3,6 +3,10 @@
 require_once plugin_dir_path(__FILE__) . 'backend/query.php';
 $user_options = get_option('user_options', array());
 $user_template = $user_options['template'];
+$user_desc = $user_options['my_form_description'];
+$user_title = $user_options['my_form_title'];
+$user_time_title = $user_options['user_timer_title'];
+
 
 
 ?>
@@ -169,22 +173,23 @@ $user_template = $user_options['template'];
                             <h3>
                                 <?php esc_html_e("Title", "cww-maintenance"); ?>
                             </h3>
-                            <input type="text" name="Title" id="cww_Title" class="cww_title"
-                                placeholder="Your Title...">
+                            <input type="text" name="Title" id="cww_Title" class="cww_title" placeholder="Your Title..."
+                                value="<?php esc_html_e($user_time_title) ?>">
                         </div>
                         <div class="cww_setting_middle">
                             <h3>
                                 <?php esc_html_e("Description", "cww-maintenance"); ?>
                             </h3>
                             <input type="text" name="Description" id="cww_Des" class="Description"
-                                placeholder="Your Description..." required>
+                                placeholder="Your Description..." value="<?php esc_html_e($user_desc) ?>" required>
                         </div>
                         <div class="cww_setting_middle">
                             <h3>
                                 <?php esc_html_e("Timer title", "cww-maintenance"); ?>
                             </h3>
                             <input type="text" name="cww_maintenance_timer_title" id="cww_maintenance_timer_title"
-                                class="cww_maintenance_timer_title" placeholder="Timer title" required>
+                                class="cww_maintenance_timer_title" placeholder="Timer title"
+                                value="<?php esc_html_e($user_title) ?>" required>
                         </div>
                         <div class="cww_setting_middle">
                             <h3>
@@ -230,11 +235,10 @@ $user_template = $user_options['template'];
 
 
         <div class="cww_services">
-            <h1>Hello world</h1>
+            <h1>Choose icons and add Links</h1>
             <?php
             $sf_forms_settings = get_option('user_options', array());
             $sf_forms_settings = isset($user_options['icon']) ? $user_options['icon'] : "icofont-ui-chat";
-
             $icon = $sf_forms_settings;
             ?>
             <div class="sf-forms-icon-box">
