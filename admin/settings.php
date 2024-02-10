@@ -14,7 +14,7 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
             add_action('admin_menu', array($this, 'add_admin_menu'));
             add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts_and_styles_admin'));
             $this->files_icons();
-            add_action('init', array($this, 'settings'), 10);
+            add_action('init', array($this, 'detault_values'), 10);
             add_action('init', array($this, 'coming_soon_init'), 11);
 
         }
@@ -70,12 +70,18 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
 
             if (!is_admin() && is_user_logged_in() && $user_template === "template1") {
                 require_once CWW_MAINTENANCE_PATH . 'frontend/templates/template1.php';
+
             } else if (!is_admin() && is_user_logged_in() && $user_template === "template2") {
-                echo "Temp2";
-                require_once CWW_MAINTENANCE_PATH . 'frontend/templates/template2.php';
+
+                // require_once CWW_MAINTENANCE_PATH . 'frontend/templates/template2.php';
+                wp_redirect(CWW_MAINTENANCE_PATH . 'frontend/templates/template2.php');
+                // exit;
+
 
             } else if (!is_admin() && is_user_logged_in() && $user_template === "template3") {
+
                 require_once CWW_MAINTENANCE_PATH . 'frontend/templates/template3.php';
+
 
             }
         }
@@ -83,7 +89,7 @@ if (!class_exists("Cww_Maintenance_Admin_Setting_Class")):
 
 
 
-        public static function settings()
+        public static function detault_values()
         {
             $existing_form_data = get_option('user_options', array());
             if (empty($existing_form_data)) {

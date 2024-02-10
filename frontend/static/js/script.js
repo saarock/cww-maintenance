@@ -29,14 +29,29 @@ setInterval(() => {
 
 
 // click menu to open form
-menuOpen.addEventListener('click', () => {
+menuOpen.addEventListener('click', (e) => {
     form.classList.add("cww_showtemplate2_form");
+    e.stopPropagation()
 });
 
 
 //Click cut form to remove the form
-cutForm.addEventListener('click', () => {
+cutForm.addEventListener('click', (e) => {
     form.classList.remove("cww_showtemplate2_form");
+
+
 
 });
 
+window.document.addEventListener('click', (e) => {
+    form.classList.remove("cww_showtemplate2_form");
+
+
+
+    // alert("done")
+});
+
+form.onclick = (e) => {
+    e.stopPropagation()
+
+}

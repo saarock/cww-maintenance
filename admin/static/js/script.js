@@ -1,15 +1,16 @@
 "use strict"
 
-var services = document.querySelectorAll('.cww_services');
-var featureButton = document.getElementsByClassName('cww_feature_button');
-var mode = document.querySelectorAll('.cww_mode');
-var modePages = document.getElementsByClassName('cww_mode_page');
-var uploadButton = document.querySelector('.cww_upload_button');
-var logo = document.querySelector(".cww_userselected_logo");
-var deleteButton = document.querySelector(".cww_delete");
-var deleteButtonBack = document.querySelector(".cww_maintenance_delete_background_image");
-var cwwMaintenanceUserselectedBackgroundImage = document.querySelector(".cww_maintenance_userselected_background_image");
-
+const services = document.querySelectorAll('.cww_services');
+const featureButton = document.getElementsByClassName('cww_feature_button');
+const mode = document.querySelectorAll('.cww_mode');
+const modePages = document.getElementsByClassName('cww_mode_page');
+const uploadButton = document.querySelector('.cww_upload_button');
+const logo = document.querySelector(".cww_userselected_logo");
+const deleteButton = document.querySelector(".cww_delete");
+const deleteButtonBack = document.querySelector(".cww_maintenance_delete_background_image");
+const cwwMaintenanceUserselectedBackgroundImage = document.querySelector(".cww_maintenance_userselected_background_image");
+const cwwTemplateDiv = document.querySelectorAll('.cww_template');
+const cwwActiveButton = document.getElementsByClassName('cww_active_button');
 
 
 // Show the features
@@ -116,11 +117,6 @@ mode.forEach((current, index) => {
 
 
 
-
-
-
-
-
 // delete the seelcted image
 deleteButton.addEventListener('click', () => {
     const logoImage = document.querySelector('.cww_userselected_logo');
@@ -133,6 +129,22 @@ deleteButton.addEventListener('click', () => {
     imgInput.value = "";
 
 });
+
+
+// Active the template 
+activeTheTemplate()
+
+function activeTheTemplate() {
+
+    cwwTemplateDiv.forEach((currentElement, index) => {
+        currentElement.onclick = () => {
+            cwwActiveButton[index].click();
+
+        }
+    });
+}
+
+
 
 // Vanilla javascript end 
 
@@ -189,11 +201,10 @@ deleteButtonBack.addEventListener('click', () => {
 
 });
 
+
+
+
 (function ($) {
-
-
-
-
 
     $(document).on('click', '.cww_maintenance_upload_back_button', function (e) {
         e.preventDefault();
@@ -278,7 +289,6 @@ deleteButtonBack.addEventListener('click', () => {
 
     $('body').on('change', '#container_bg_type', function () {
         var currentBG = $(this).val();
-
         if (currentBG == 'color') {
             $(this).parent().parent().next().next('.wrapper-bg-type-img').removeClass('active');
             $(this).parent().parent().next('.wrapper-bg-type-color').toggleClass('active');

@@ -61,3 +61,5 @@ $user_back_img = isset($user_options['user_background_image']) ? $user_options['
         </span>
     </div>
 </div>
+
+</html>
